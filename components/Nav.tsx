@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { siteConfig } from "@/lib/siteConfig";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Booths", href: "/services" },
+  { label: "Booth", href: "/booth" },
   { label: "Backdrops", href: "/backdrops" },
+  { label: "Add-On", href: "/add-on" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -44,11 +47,16 @@ export default function Nav() {
           className="flex items-center gap-2 shrink-0 group"
           aria-label="SCV Photo Booth Rentals home"
         >
-          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-ink text-bg font-heading text-sm">
-            SB
-          </span>
+          <Image
+            src="/logo-icon.png"
+            alt=""
+            width={36}
+            height={36}
+            priority
+            className="w-9 h-9 object-contain"
+          />
           <span className="hidden sm:block font-heading text-base text-ink tracking-tight">
-            SCV Photo Booth
+            SCV Photo Booth Rentals
           </span>
         </Link>
 
@@ -74,16 +82,16 @@ export default function Nav() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:6610000000"
+            href={siteConfig.phoneHref}
             className="text-sm font-medium text-muted hover:text-ink transition-colors"
           >
-            (661) 000-0000
+            {siteConfig.phone}
           </a>
           <Link
             href="/contact"
             className="bg-ink text-bg text-sm font-medium px-4 py-2 rounded-full transition-all hover:bg-accent active:translate-y-px"
           >
-            Check Availability
+            Book Now
           </Link>
         </div>
 
@@ -141,13 +149,13 @@ export default function Nav() {
                 href="/contact"
                 className="mt-6 bg-ink text-bg text-sm font-medium px-5 py-3 rounded-full text-center"
               >
-                Check Availability
+                Book Now
               </Link>
               <a
-                href="tel:6610000000"
+                href={siteConfig.phoneHref}
                 className="mt-2 text-sm font-medium text-muted text-center"
               >
-                (661) 000-0000
+                {siteConfig.phone}
               </a>
             </div>
           </motion.div>

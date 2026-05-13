@@ -31,8 +31,8 @@ export default function BackdropsPage() {
         title="Backdrops"
         lede={
           <>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Add any
-            backdrop to your booking for an additional{" "}
+            Set the scene for every shot. Add any backdrop to your booking for
+            an additional{" "}
             <span className="text-ink font-medium">$75</span>. Each panel is{" "}
             <span className="text-ink font-medium">8&prime; × 8&prime;</span>.
           </>
@@ -90,8 +90,9 @@ export default function BackdropsPage() {
                   </span>
                 </h2>
                 <p className="mt-5 max-w-xl text-muted">
-                  Lorem ipsum dolor sit amet. Tell us the vibe and we&rsquo;ll
-                  put options in front of you within 48 hours.
+                  Tell us the vibe — colors, theme, inspiration photos — and
+                  we&rsquo;ll put custom options in front of you within 48
+                  hours.
                 </p>
               </div>
               <div className="md:col-span-4 md:justify-self-end">

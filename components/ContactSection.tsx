@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import Reveal from "./Reveal";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function ContactSection() {
   return (
@@ -13,13 +14,13 @@ export default function ContactSection() {
                 Have a question?
               </div>
               <h2 className="font-heading font-medium text-ink leading-[0.95] -tracking-[0.02em] text-[clamp(2rem,5.5vw,3.75rem)]">
-                Lorem ipsum dolor sit amet,
+                Ready to plan
                 <br className="hidden md:block" />
-                <span className="italic">consectetur</span> adipiscing.
+                <span className="italic">something</span> unforgettable?
               </h2>
               <p className="mt-5 max-w-xl text-base md:text-lg text-muted leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Send
-                us your event date, location, and what you have in mind.
+                Send us your event date, location, and what you have in mind.
+                We&rsquo;ll get back to you within 24 hours with a custom quote.
               </p>
             </div>
             <div className="md:col-span-5 md:justify-self-end flex flex-col gap-3">
@@ -30,10 +31,10 @@ export default function ContactSection() {
                 Start an inquiry
               </Link>
               <a
-                href="tel:6610000000"
+                href={siteConfig.phoneHref}
                 className="inline-flex items-center justify-center border border-ink/20 px-6 py-3 rounded-full font-medium text-sm text-ink hover:border-ink transition-colors"
               >
-                Or call (661) 000-0000
+                Or call {siteConfig.phone}
               </a>
             </div>
           </div>

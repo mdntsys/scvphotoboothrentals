@@ -2,19 +2,20 @@ import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import { siteConfig } from "@/lib/siteConfig";
 
 const faqs = [
   {
-    q: "Lorem ipsum dolor sit amet?",
-    a: "Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    q: "How far in advance should we book?",
+    a: "Most clients book 2–6 months out, but we take inquiries year-round. Peak weekends (spring and fall) fill fastest — the sooner we hear from you, the better the chance of locking in your date.",
   },
   {
-    q: "Ut enim ad minim veniam quis nostrud?",
-    a: "Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    q: "What's included in a standard package?",
+    a: "Every booking includes the booth, an on-site attendant, setup and breakdown, unlimited sessions, and digital copies for guests. Prints, custom templates, props, and backdrops are add-ons you can mix and match.",
   },
   {
-    q: "Duis aute irure dolor in reprehenderit?",
-    a: "In voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.",
+    q: "Do you travel outside Southern California?",
+    a: "Yes — we cover all of Southern California by default, and travel further with our Extended Coverage add-on for venues 100+ miles out. Destination weddings welcome; just tell us where and we'll quote it.",
   },
 ];
 
@@ -35,7 +36,7 @@ export default function ContactPage() {
             <span className="italic font-light">your event.</span>
           </>
         }
-        lede="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tell us about the date, the venue, and the vibe."
+        lede="Tell us about the date, the venue, and the vibe. We'll get back to you within 24 hours with a custom quote."
       />
 
       <section className="pb-20 md:pb-32">
@@ -53,16 +54,16 @@ export default function ContactPage() {
                 <div className="mt-6 space-y-5">
                   <InfoRow
                     label="Phone"
-                    value="(661) 000-0000"
-                    href="tel:6610000000"
+                    value={siteConfig.phone}
+                    href={siteConfig.phoneHref}
                   />
                   <InfoRow
                     label="Email"
-                    value="hello@example.com"
-                    href="mailto:hello@example.com"
+                    value={siteConfig.email}
+                    href={siteConfig.emailHref}
                   />
-                  <InfoRow label="Service area" value="Santa Clarita Valley + surrounding" />
-                  <InfoRow label="Hours" value="Mon–Sun, by appointment" />
+                  <InfoRow label="Service area" value={siteConfig.serviceArea} />
+                  <InfoRow label="Hours" value={siteConfig.hours} />
                 </div>
                 <div className="mt-8 pt-6 border-t border-border">
                   <div className="text-xs uppercase tracking-[0.25em] text-muted mb-3">

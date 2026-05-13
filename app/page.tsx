@@ -4,7 +4,6 @@ import Reveal from "@/components/Reveal";
 import BoothTile from "@/components/BoothTile";
 import FeatureCard from "@/components/FeatureCard";
 import Marquee from "@/components/Marquee";
-import EventGallery from "@/components/EventGallery";
 import SectionHeading from "@/components/SectionHeading";
 
 const eventTypes = [
@@ -18,21 +17,28 @@ const eventTypes = [
   "Holidays",
 ];
 
+const heroTags = [
+  "Unlimited Photos",
+  "Instant Prints",
+  "Digital Sharing",
+  "Fun Props & Backdrops",
+];
+
 const features = [
   {
     index: "01",
     title: "Modern open-air booth",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sleek, low-profile setup that fits any venue.",
+    body: "A sleek, low-profile setup that fits any venue — indoors or out — without crowding your space or your photos.",
   },
   {
     index: "02",
     title: "Attendant on site",
-    body: "Sed do eiusmod tempor incididunt ut labore et dolore. A real human keeps the line moving and the prints flowing.",
+    body: "A real human keeps the line moving, the props refreshed, and the prints flowing all night long.",
   },
   {
     index: "03",
     title: "Prints + digital, instantly",
-    body: "Ut enim ad minim veniam, quis nostrud. Guests walk away with a print in 8 seconds and a digital copy on their phone.",
+    body: "Guests walk away with a print in 8 seconds and a digital copy on their phone before the next group steps up.",
   },
 ];
 
@@ -41,25 +47,48 @@ const booths = [
     eyebrow: "Signature",
     name: "Glam Booth",
     description:
-      "Lorem ipsum dolor sit amet. Hollywood-style soft lighting with skin-smoothing finish.",
-    href: "/services#glam",
+      "Hollywood-style soft lighting with a skin-smoothing finish that makes every guest feel red-carpet ready.",
+    href: "/booth#glam",
     accent: "#e8b4a0",
   },
   {
     eyebrow: "Classic",
     name: "Print Booth",
     description:
-      "Consectetur adipiscing elit. Crisp 4x6 or strip prints in 8 seconds, every time.",
-    href: "/services#print",
+      "Crisp 4x6 or strip prints in 8 seconds, every time — the classic experience guests still ask for by name.",
+    href: "/booth#print",
     accent: "#c97b5a",
   },
   {
     eyebrow: "Compact",
     name: "Digital Booth",
     description:
-      "Sed do eiusmod tempor. Lightweight, social-ready, GIFs and Boomerangs included.",
-    href: "/services#digital",
+      "Lightweight, social-ready, with GIFs and Boomerangs included — perfect for venues where space is tight.",
+    href: "/booth#digital",
     accent: "#9e5a3f",
+  },
+];
+
+const experiences = [
+  {
+    title: "Attendant",
+    body: "Your dedicated host keeps the line moving and the energy up, so you can stay with your guests.",
+    accent: "#e8b4a0",
+  },
+  {
+    title: "Custom Prints",
+    body: "Branded strip or 4x6 layouts designed around your colors, monogram, or hashtag.",
+    accent: "#c97b5a",
+  },
+  {
+    title: "Custom Booth Vinyl",
+    body: "Wrap the booth in your colors, logo, or wedding monogram for a fully on-brand centerpiece.",
+    accent: "#9e5a3f",
+  },
+  {
+    title: "Hand-Selected Props",
+    body: "Curated prop sets to match your theme — from elegant minimal to all-out themed parties.",
+    accent: "#1a1612",
   },
 ];
 
@@ -72,29 +101,37 @@ export default function HomePage() {
           <div className="grid gap-12 md:gap-16 md:grid-cols-12 items-end">
             <Reveal className="md:col-span-7">
               <div className="text-xs uppercase tracking-[0.25em] font-medium text-accent-dark mb-5">
-                Santa Clarita Valley · Est. Lorem
+                Southern California · Photo Booth Rentals
               </div>
               <h1 className="font-heading font-medium text-ink leading-[0.95] -tracking-[0.025em] text-[clamp(2.75rem,8vw,5.75rem)]">
-                Lorem ipsum,
+                Your event,
                 <br />
-                <span className="italic font-light">dolor</span> sit amet.
+                <span className="italic font-light">Our Priority</span>
               </h1>
               <p className="mt-7 max-w-xl text-base md:text-lg text-muted leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Capture your event with memories that last a lifetime &mdash;
+                our photo booth adds a perfect touch to any celebration.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+
+              {/* Tag pills */}
+              <ul className="mt-7 flex flex-wrap gap-2">
+                {heroTags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs md:text-sm text-ink"
+                  >
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center bg-ink text-bg px-6 py-3 rounded-full font-medium text-sm hover:bg-accent transition-colors"
+                  className="inline-flex items-center justify-center bg-ink text-bg px-7 py-3.5 rounded-full font-medium text-sm hover:bg-accent transition-colors"
                 >
-                  Check availability
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center border border-ink/20 px-6 py-3 rounded-full font-medium text-sm text-ink hover:border-ink transition-colors"
-                >
-                  See our booths
+                  Book Now
                 </Link>
               </div>
             </Reveal>
@@ -157,7 +194,7 @@ export default function HomePage() {
                   <span className="italic font-light">people remember.</span>
                 </>
               }
-              lede="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+              lede="Modern open-air booths, real attendants, and prints in your hand before the next group steps up."
             />
           </Reveal>
 
@@ -187,7 +224,7 @@ export default function HomePage() {
                 }
               />
               <Link
-                href="/services"
+                href="/booth"
                 className="inline-flex items-center text-sm font-medium text-ink hover:text-accent transition-colors self-start md:self-end"
               >
                 Compare all booths →
@@ -205,24 +242,67 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Recent events */}
+      {/* Customizable Experiences */}
       <section className="py-20 md:py-32">
-        <Container className="mb-10 md:mb-14">
+        <Container>
           <Reveal>
-            <SectionHeading
-              eyebrow="Recent events"
-              title={
-                <>
-                  Real parties,
-                  <br />
-                  <span className="italic font-light">real strips.</span>
-                </>
-              }
-              lede="Lorem ipsum dolor sit amet. A peek at the rooms, the lighting, and the people making memories."
-            />
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
+              <SectionHeading
+                eyebrow="Customizable experiences"
+                title={
+                  <>
+                    Make it
+                    <br />
+                    <span className="italic font-light">unmistakably yours.</span>
+                  </>
+                }
+                lede="Mix and match add-ons to tailor the booth to your event — your colors, your props, your moment."
+              />
+              <Link
+                href="/add-on"
+                className="inline-flex items-center text-sm font-medium text-ink hover:text-accent transition-colors self-start md:self-end"
+              >
+                See all add-ons →
+              </Link>
+            </div>
           </Reveal>
+
+          <div className="grid gap-5 md:gap-6 grid-cols-2 lg:grid-cols-4">
+            {experiences.map((x, i) => (
+              <Reveal key={x.title} delay={(i % 4) * 0.06}>
+                <Link
+                  href="/add-on"
+                  className="group block rounded-2xl border border-border bg-surface overflow-hidden hover:border-ink transition-colors h-full"
+                >
+                  <div
+                    className="aspect-[4/3] relative"
+                    style={{
+                      background: `linear-gradient(160deg, ${x.accent} 0%, #faf6f1 100%)`,
+                    }}
+                  >
+                    <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-bg/85 backdrop-blur-sm px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-ink">
+                      Add-On
+                    </span>
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <h3 className="font-heading text-xl md:text-2xl text-ink leading-tight -tracking-[0.01em]">
+                      {x.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted leading-relaxed">
+                      {x.body}
+                    </p>
+                    <span className="mt-4 inline-flex items-center text-sm font-medium text-ink group-hover:text-accent transition-colors">
+                      Learn more
+                      <span className="ml-1 transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </Container>
-        <EventGallery />
       </section>
     </>
   );

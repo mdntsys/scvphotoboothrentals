@@ -20,17 +20,17 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "SCV Photo Booth Rentals | Santa Clarita, CA",
+    default: "SCV Photo Booth Rentals | Serving Southern California",
     template: "%s | SCV Photo Booth Rentals",
   },
   description:
-    "Modern open-air photo booth rentals for weddings, birthdays, corporate events, and more in Santa Clarita Valley and surrounding areas.",
+    "SCV Photo Booth Rentals — modern open-air photo booth rentals for weddings, birthdays, corporate events, and more across Southern California.",
   keywords: [
-    "photo booth rental Santa Clarita",
-    "wedding photo booth SCV",
+    "SCV Photo Booth Rentals",
+    "photo booth rental Southern California",
+    "wedding photo booth",
     "open-air photo booth",
     "event photo booth rental",
-    "Santa Clarita Valley photo booth",
   ],
   openGraph: {
     siteName: "SCV Photo Booth Rentals",

@@ -1,17 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
+import { siteConfig } from "@/lib/siteConfig";
 
 const sitemap = [
   { label: "Home", href: "/" },
-  { label: "Booths", href: "/services" },
+  { label: "Booth", href: "/booth" },
   { label: "Backdrops", href: "/backdrops" },
+  { label: "Add-On", href: "/add-on" },
   { label: "Contact", href: "/contact" },
-];
-
-const socials = [
-  { label: "Instagram", href: "#" },
-  { label: "TikTok", href: "#" },
-  { label: "Facebook", href: "#" },
 ];
 
 export default function Footer() {
@@ -21,22 +18,25 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link href="/" className="inline-flex items-center gap-2">
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-ink text-bg font-heading text-sm">
-                SB
-              </span>
+              <Image
+                src="/logo-icon.png"
+                alt=""
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+              />
               <span className="font-heading text-lg text-ink">
-                SCV Photo Booth
+                SCV Photo Booth Rentals
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm text-muted leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Modern,
-              attendant-staffed photo booth experiences for events across Santa
-              Clarita Valley.
+              Modern, attendant-staffed photo booth experiences for weddings,
+              birthdays, and events across Southern California.
             </p>
             <div className="mt-6 flex items-center gap-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-bg/60 px-3 py-1 text-xs uppercase tracking-[0.18em] text-muted">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-                Santa Clarita, CA
+                {siteConfig.serviceArea}
               </span>
             </div>
           </div>
@@ -66,23 +66,23 @@ export default function Footer() {
             <ul className="mt-5 space-y-3">
               <li>
                 <a
-                  href="tel:6610000000"
+                  href={siteConfig.phoneHref}
                   className="text-sm text-ink hover:text-accent transition-colors"
                 >
-                  (661) 000-0000
+                  {siteConfig.phone}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:hello@example.com"
+                  href={siteConfig.emailHref}
                   className="text-sm text-ink hover:text-accent transition-colors"
                 >
-                  hello@example.com
+                  {siteConfig.email}
                 </a>
               </li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              {socials.map((s) => (
+              {siteConfig.socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
@@ -98,8 +98,8 @@ export default function Footer() {
 
         <div className="mt-14 pt-8 border-t border-border/70 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-muted">
-            © {new Date().getFullYear()} SCV Photo Booth Rentals. Lorem ipsum
-            all rights reserved.
+            © {new Date().getFullYear()} SCV Photo Booth Rentals. All rights
+            reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-muted">
             <a href="#" className="hover:text-ink transition-colors">

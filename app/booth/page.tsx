@@ -18,7 +18,7 @@ const booths: Booth[] = [
     eyebrow: "Signature",
     name: "Glam Booth",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Hollywood-style soft lighting paired with a skin-smoothing finish. Black-and-white or full color, every shot looks editorial straight out of the booth.",
     features: [
       "Hollywood-style skin smoothing",
       "Black-and-white or full color prints",
@@ -31,7 +31,7 @@ const booths: Booth[] = [
     eyebrow: "Classic",
     name: "Print Booth",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "The classic photo booth experience, refined. Crisp 4x6 or strip prints in 8 seconds, custom templates, and unlimited prints all night.",
     features: [
       "4x6 prints in 8 seconds",
       "Custom strip templates",
@@ -44,7 +44,7 @@ const booths: Booth[] = [
     eyebrow: "Compact",
     name: "Digital Booth",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Lightweight and social-ready. GIFs, Boomerangs, and short videos delivered to guests instantly via text or AirDrop — no prints, all share.",
     features: [
       "GIFs, Boomerangs, video",
       "Instant text + AirDrop",
@@ -71,7 +71,7 @@ export default function ServicesPage() {
             <span className="italic font-light">We&rsquo;ll handle the rest.</span>
           </>
         }
-        lede="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt."
+        lede="Three booth experiences, each designed for a different kind of moment. Pair any of them with custom prints, props, or backdrops."
       />
 
       <div className="pb-20 md:pb-32">
@@ -157,12 +157,12 @@ export default function ServicesPage() {
                   Pricing
                 </div>
                 <h3 className="font-heading font-medium text-ink leading-[0.95] -tracking-[0.02em] text-[clamp(1.75rem,4.5vw,3rem)]">
-                  Packages start at{" "}
-                  <span className="italic">$lorem</span>.
+                  Every package, <span className="italic">custom quoted</span>.
                 </h3>
                 <p className="mt-4 max-w-xl mx-auto text-muted">
-                  Lorem ipsum dolor sit amet. Every package includes attendant,
-                  setup, and breakdown.
+                  Every package includes attendant, setup, and breakdown. Tell
+                  us about your event and we&rsquo;ll put together a quote in 24
+                  hours.
                 </p>
                 <Link
                   href="/contact"
