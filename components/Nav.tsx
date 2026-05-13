@@ -41,19 +41,19 @@ export default function Nav() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <nav className="mx-auto max-w-7xl px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
+      <nav className="mx-auto max-w-7xl px-6 md:px-10 h-20 md:h-24 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 shrink-0 group"
+          className="flex items-center gap-3 md:gap-5 shrink-0 group"
           aria-label="SCV Photo Booth Rentals home"
         >
           <Image
             src="/logo-icon.png"
             alt=""
-            width={36}
-            height={36}
+            width={72}
+            height={72}
             priority
-            className="w-9 h-9 object-contain"
+            className="w-12 h-12 md:w-[72px] md:h-[72px] object-contain"
           />
           <span className="hidden sm:block font-heading text-base text-ink tracking-tight">
             SCV Photo Booth Rentals

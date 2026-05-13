@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 
-type Booth = {
+type Mode = {
   id: string;
   eyebrow: string;
   name: string;
@@ -12,73 +13,86 @@ type Booth = {
   accent: string;
 };
 
-const booths: Booth[] = [
+const modes: Mode[] = [
   {
-    id: "glam",
-    eyebrow: "Signature",
-    name: "Glam Booth",
+    id: "digital",
+    eyebrow: "Output",
+    name: "Digital",
     description:
-      "Hollywood-style soft lighting paired with a skin-smoothing finish. Black-and-white or full color, every shot looks editorial straight out of the booth.",
+      "Send every shot straight to guests' phones. No waiting on prints, no extra trip back to the booth — just instant, shareable photos delivered the moment they're taken.",
     features: [
-      "Hollywood-style skin smoothing",
-      "Black-and-white or full color prints",
-      "On-site attendant included",
+      "Instant text or AirDrop delivery",
+      "Fastest turnaround, smallest footprint",
+      "Best for venues where space is tight or guests want to share immediately",
     ],
-    accent: "#e8b4a0",
+    accent: "#9e5a3f",
   },
   {
     id: "print",
-    eyebrow: "Classic",
-    name: "Print Booth",
+    eyebrow: "Output",
+    name: "Print",
     description:
-      "The classic photo booth experience, refined. Crisp 4x6 or strip prints in 8 seconds, custom templates, and unlimited prints all night.",
+      "The classic photo booth experience, refined. Crisp 4x6 or strip prints in 8 seconds, branded templates designed for your event, unlimited reprints all night.",
     features: [
-      "4x6 prints in 8 seconds",
-      "Custom strip templates",
-      "Unlimited prints all night",
+      "4x6 prints or strip layouts",
+      "Custom-branded templates",
+      "Unlimited reprints throughout the event",
     ],
     accent: "#c97b5a",
   },
   {
-    id: "digital",
-    eyebrow: "Compact",
-    name: "Digital Booth",
+    id: "digital-print",
+    eyebrow: "Output",
+    name: "Digital + Print",
     description:
-      "Lightweight and social-ready. GIFs, Boomerangs, and short videos delivered to guests instantly via text or AirDrop — no prints, all share.",
+      "Both worlds. Guests walk away with a print in hand and a digital copy on their phone — perfect for events where you want a physical keepsake plus the social-share moment.",
     features: [
-      "GIFs, Boomerangs, video",
-      "Instant text + AirDrop",
-      "Tiny footprint, big results",
+      "Physical print + instant digital delivery",
+      "Most popular configuration",
+      "Everything in Digital and Print, bundled",
     ],
-    accent: "#9e5a3f",
+    accent: "#e8b4a0",
   },
 ];
 
+const standardFeatures = [
+  "Boomerangs & GIFs",
+  "Video clips",
+  "Animated overlays",
+  "Color & black-and-white filters",
+  "Vertical and horizontal capture",
+  "Custom print and digital templates",
+  "Multi-design layouts",
+  "iPad-driven guest interface",
+  "On-site attendant",
+  "Setup and breakdown included",
+];
+
 export const metadata = {
-  title: "Our Booths",
+  title: "Booth Options",
 };
 
-export default function ServicesPage() {
+export default function BoothPage() {
   return (
     <>
       <Hero
         size="sm"
-        eyebrow="Our booths"
+        eyebrow="Booth options"
         title={
           <>
-            Pick the vibe.
+            One booth.
             <br />
-            <span className="italic font-light">We&rsquo;ll handle the rest.</span>
+            <span className="italic font-light">Every mode.</span>
           </>
         }
-        lede="Three booth experiences, each designed for a different kind of moment. Pair any of them with custom prints, props, or backdrops."
+        lede="Pick your output — digital, print, or both — and add the Glam upgrade for high-resolution, ring-lit shots. Every mode includes the full feature set, standard."
       />
 
       <div className="pb-20 md:pb-32">
-        {booths.map((b, i) => (
+        {modes.map((m, i) => (
           <section
-            key={b.id}
-            id={b.id}
+            key={m.id}
+            id={m.id}
             className={`scroll-mt-24 py-16 md:py-24 ${
               i % 2 === 1 ? "bg-surface-2/50 border-y border-border" : ""
             }`}
@@ -93,7 +107,7 @@ export default function ServicesPage() {
                   <div
                     className="aspect-[4/5] rounded-3xl border border-border overflow-hidden relative"
                     style={{
-                      background: `linear-gradient(160deg, ${b.accent} 0%, #faf6f1 100%)`,
+                      background: `linear-gradient(160deg, ${m.accent} 0%, #faf6f1 100%)`,
                     }}
                   >
                     <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
@@ -101,7 +115,7 @@ export default function ServicesPage() {
                         {String(i + 1).padStart(2, "0")} / 03
                       </span>
                       <span className="font-heading italic text-ink/60">
-                        {b.eyebrow}
+                        {m.eyebrow}
                       </span>
                     </div>
                   </div>
@@ -109,16 +123,16 @@ export default function ServicesPage() {
 
                 <Reveal className="md:col-span-6" delay={0.1}>
                   <div className="text-xs uppercase tracking-[0.25em] font-medium text-accent-dark mb-4">
-                    {b.eyebrow} · {String(i + 1).padStart(2, "0")}
+                    {m.eyebrow} · {String(i + 1).padStart(2, "0")}
                   </div>
                   <h2 className="font-heading font-medium text-ink leading-[0.95] -tracking-[0.02em] text-[clamp(2rem,5vw,3.5rem)]">
-                    {b.name}
+                    {m.name}
                   </h2>
                   <p className="mt-5 text-base md:text-lg text-muted leading-relaxed max-w-lg">
-                    {b.description}
+                    {m.description}
                   </p>
                   <ul className="mt-8 space-y-3">
-                    {b.features.map((f) => (
+                    {m.features.map((f) => (
                       <li
                         key={f}
                         className="flex items-start gap-3 text-sm md:text-base text-ink"
@@ -147,6 +161,114 @@ export default function ServicesPage() {
             </Container>
           </section>
         ))}
+
+        {/* Every booth includes */}
+        <section className="py-20 md:py-28 bg-surface-2/40 border-y border-border">
+          <Container>
+            <Reveal>
+              <div className="max-w-2xl">
+                <div className="text-xs uppercase tracking-[0.25em] font-medium text-accent-dark mb-4">
+                  Standard on every mode
+                </div>
+                <h2 className="font-heading font-medium text-ink leading-[0.95] -tracking-[0.02em] text-[clamp(1.75rem,4.5vw,3rem)]">
+                  Every booth includes
+                  <br />
+                  <span className="italic font-light">the full toolkit.</span>
+                </h2>
+                <p className="mt-5 text-muted">
+                  Whatever output you pick, the booth ships with the same
+                  feature set out of the box. No gating, no surprise upcharges
+                  on the basics.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <ul className="mt-12 grid gap-x-8 gap-y-4 sm:grid-cols-2 md:grid-cols-3">
+                {standardFeatures.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-3 text-sm md:text-base text-ink"
+                  >
+                    <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </Container>
+        </section>
+
+        {/* Glam Upgrade */}
+        <section
+          id="glam"
+          className="scroll-mt-24 py-20 md:py-28 bg-ink text-bg"
+        >
+          <Container>
+            <div className="grid gap-10 md:gap-16 md:grid-cols-12 items-center">
+              <Reveal className="md:col-span-6" delay={0.1}>
+                <div className="text-xs uppercase tracking-[0.25em] font-medium text-accent mb-4">
+                  Premium upgrade
+                </div>
+                <h2 className="font-heading font-medium leading-[0.95] -tracking-[0.02em] text-[clamp(2rem,5vw,3.5rem)]">
+                  The Glam Upgrade.
+                </h2>
+                <p className="mt-5 text-base md:text-lg text-bg/80 leading-relaxed max-w-lg">
+                  A high-resolution camera and a Hollywood-style ring light
+                  setup, designed for events where every shot needs to look
+                  editorial. Pairs with any output mode — Digital, Print, or
+                  both — and produces magazine-quality images with flattering,
+                  even lighting.
+                </p>
+                <ul className="mt-8 space-y-3">
+                  {[
+                    "High-resolution DSLR camera",
+                    "Hollywood-style ring light",
+                    "Optional skin-smoothing finish",
+                    "Works with any output mode",
+                  ].map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-3 text-sm md:text-base text-bg/90"
+                    >
+                      <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-9">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center bg-bg text-ink px-6 py-3 rounded-full font-medium text-sm hover:bg-accent hover:text-ink transition-colors"
+                  >
+                    Ask about Glam
+                  </Link>
+                </div>
+              </Reveal>
+
+              <Reveal className="md:col-span-6">
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden relative">
+                  <Image
+                    src="/glam-booth.png"
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-bg/90">
+                      Upgrade · Glam
+                    </span>
+                    <span className="font-heading italic text-bg/90">
+                      High-res
+                    </span>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </Container>
+        </section>
 
         {/* Pricing teaser */}
         <section className="py-20 md:py-28">

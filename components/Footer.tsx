@@ -17,13 +17,13 @@ export default function Footer() {
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center gap-5">
               <Image
                 src="/logo-icon.png"
                 alt=""
-                width={40}
-                height={40}
-                className="w-10 h-10 object-contain"
+                width={80}
+                height={80}
+                className="w-20 h-20 object-contain"
               />
               <span className="font-heading text-lg text-ink">
                 SCV Photo Booth Rentals

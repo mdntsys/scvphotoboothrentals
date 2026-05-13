@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type BoothTileProps = {
@@ -6,6 +7,7 @@ type BoothTileProps = {
   description: string;
   href: string;
   accent?: string;
+  image?: string;
 };
 
 export default function BoothTile({
@@ -14,6 +16,7 @@ export default function BoothTile({
   description,
   href,
   accent = "#e8b4a0",
+  image,
 }: BoothTileProps) {
   return (
     <Link
@@ -22,10 +25,23 @@ export default function BoothTile({
     >
       <div
         className="relative aspect-[4/5] overflow-hidden"
-        style={{
-          background: `linear-gradient(160deg, ${accent} 0%, #faf6f1 100%)`,
-        }}
+        style={
+          image
+            ? undefined
+            : {
+                background: `linear-gradient(160deg, ${accent} 0%, #faf6f1 100%)`,
+              }
+        }
       >
+        {image ? (
+          <Image
+            src={image}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+        ) : null}
         <div className="absolute inset-0 flex items-end p-6">
           <span className="font-heading uppercase text-bg/0 text-xs tracking-[0.25em]">
             {eyebrow}
