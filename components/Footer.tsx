@@ -136,12 +136,12 @@ export default function Footer() {
             reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-muted">
-            <a href="#" className="hover:text-ink transition-colors">
+            <Link href="/privacy" className="hover:text-ink transition-colors">
               Privacy
-            </a>
-            <a href="#" className="hover:text-ink transition-colors">
+            </Link>
+            <Link href="/terms" className="hover:text-ink transition-colors">
               Terms
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

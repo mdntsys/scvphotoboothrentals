@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
@@ -10,6 +11,7 @@ type AddOn = {
   description: string;
   bullets: string[];
   accent: string;
+  image: string;
 };
 
 const addons: AddOn[] = [
@@ -25,6 +27,7 @@ const addons: AddOn[] = [
       "Quick troubleshooting on-site",
     ],
     accent: "#e8b4a0",
+    image: "/addon-attendant.png",
   },
   {
     id: "custom-prints",
@@ -38,6 +41,7 @@ const addons: AddOn[] = [
       "Unlimited prints all night",
     ],
     accent: "#c97b5a",
+    image: "/addon-custom-prints.png",
   },
   {
     id: "custom-vinyl",
@@ -51,6 +55,7 @@ const addons: AddOn[] = [
       "Photo-ready under any lighting",
     ],
     accent: "#9e5a3f",
+    image: "/addon-custom-vinyl.png",
   },
   {
     id: "props",
@@ -64,6 +69,7 @@ const addons: AddOn[] = [
       "Swap-ready throughout the night",
     ],
     accent: "#1a1612",
+    image: "/addon-props.png",
   },
   {
     id: "extended-coverage",
@@ -77,6 +83,7 @@ const addons: AddOn[] = [
       "Destination weddings welcome",
     ],
     accent: "#6b5d52",
+    image: "/addon-extended-coverage.png",
   },
 ];
 
@@ -109,15 +116,14 @@ export default function AddOnPage() {
                   id={a.id}
                   className="scroll-mt-24 group h-full flex flex-col rounded-3xl border border-border bg-surface overflow-hidden"
                 >
-                  <div
-                    className="aspect-[16/9] relative"
-                    style={{
-                      background: `linear-gradient(160deg, ${a.accent} 0%, #faf6f1 100%)`,
-                    }}
-                  >
-                    <span className="absolute top-4 left-4 inline-flex items-center rounded-full bg-bg/85 backdrop-blur-sm px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-ink">
-                      Add-On · {String(i + 1).padStart(2, "0")}
-                    </span>
+                  <div className="aspect-[16/9] relative overflow-hidden">
+                    <Image
+                      src={a.image}
+                      alt={a.name}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="p-7 md:p-8 flex flex-col flex-1">
                     <h2 className="font-heading text-2xl md:text-3xl text-ink leading-tight -tracking-[0.01em]">

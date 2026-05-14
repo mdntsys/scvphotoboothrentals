@@ -2,9 +2,9 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
-import BackdropCard from "@/components/BackdropCard";
+import BackdropsExplorer from "@/components/BackdropsExplorer";
 
-const filters = ["All", "Solid", "Marble", "Floral", "Gradient", "Custom"];
+const filters = ["All", "Solid", "Marble", "Floral", "Gradient", "Custom"] as const;
 
 const backdrops = [
   { name: "Solid White", category: "Solid", swatch: "#f5f1ea", pattern: "solid" as const },
@@ -39,39 +39,7 @@ export default function BackdropsPage() {
         }
       />
 
-      {/* Filter chips */}
-      <Container>
-        <Reveal>
-          <div className="flex flex-wrap gap-2 pb-8 md:pb-12 border-b border-border">
-            {filters.map((f, i) => (
-              <button
-                key={f}
-                type="button"
-                className={`text-xs uppercase tracking-[0.2em] px-4 py-2 rounded-full transition-colors border ${
-                  i === 0
-                    ? "border-ink bg-ink text-bg"
-                    : "border-border text-muted hover:text-ink hover:border-ink"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </Reveal>
-      </Container>
-
-      {/* Grid */}
-      <section className="py-12 md:py-20">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
-            {backdrops.map((b, i) => (
-              <Reveal key={b.name} delay={(i % 4) * 0.06}>
-                <BackdropCard {...b} />
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <BackdropsExplorer filters={filters} backdrops={backdrops} />
 
       {/* Closing band */}
       <section className="py-20 md:py-28 bg-surface-2/60 border-t border-border">

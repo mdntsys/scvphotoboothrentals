@@ -31,6 +31,7 @@ const booths = [
       "Send every shot straight to guests' phones — instant text or AirDrop delivery, no waiting on prints, no extra trip back to the booth.",
     href: "/booth#digital",
     accent: "#9e5a3f",
+    image: "/booth-digital.png",
   },
   {
     name: "Print",
@@ -38,6 +39,7 @@ const booths = [
       "Crisp 4x6 or strip prints in 8 seconds, every time. Branded templates, unlimited reprints, a keepsake guests actually keep.",
     href: "/booth#print",
     accent: "#c97b5a",
+    image: "/booth-print.png",
   },
   {
     name: "Glam",
@@ -54,21 +56,25 @@ const experiences = [
     title: "Attendant",
     body: "Your dedicated host keeps the line moving and the energy up, so you can stay with your guests.",
     accent: "#e8b4a0",
+    image: "/addon-attendant.png",
   },
   {
     title: "Custom Prints",
     body: "Branded strip or 4x6 layouts designed around your colors, monogram, or hashtag.",
     accent: "#c97b5a",
+    image: "/addon-custom-prints.png",
   },
   {
     title: "Custom Booth Vinyl",
     body: "Wrap the booth in your colors, logo, or wedding monogram for a fully on-brand centerpiece.",
     accent: "#9e5a3f",
+    image: "/addon-custom-vinyl.png",
   },
   {
     title: "Hand-Selected Props",
     body: "Curated prop sets to match your theme — from elegant minimal to all-out themed parties.",
     accent: "#1a1612",
+    image: "/addon-props.png",
   },
 ];
 
@@ -229,12 +235,15 @@ export default function HomePage() {
                   href="/add-on"
                   className="group block rounded-2xl border border-border bg-surface overflow-hidden hover:border-ink transition-colors h-full"
                 >
-                  <div
-                    className="aspect-[4/3] relative"
-                    style={{
-                      background: `linear-gradient(160deg, ${x.accent} 0%, #faf6f1 100%)`,
-                    }}
-                  />
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <Image
+                      src={x.image}
+                      alt={x.title}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="p-5 md:p-6">
                     <h3 className="font-heading text-xl md:text-2xl text-ink leading-tight -tracking-[0.01em]">
                       {x.title}

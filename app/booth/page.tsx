@@ -6,17 +6,16 @@ import Reveal from "@/components/Reveal";
 
 type Mode = {
   id: string;
-  eyebrow: string;
   name: string;
   description: string;
   features: string[];
   accent: string;
+  image: string;
 };
 
 const modes: Mode[] = [
   {
     id: "digital",
-    eyebrow: "Output",
     name: "Digital",
     description:
       "Send every shot straight to guests' phones. No waiting on prints, no extra trip back to the booth — just instant, shareable photos delivered the moment they're taken.",
@@ -26,10 +25,10 @@ const modes: Mode[] = [
       "Best for venues where space is tight or guests want to share immediately",
     ],
     accent: "#9e5a3f",
+    image: "/booth-digital.png",
   },
   {
     id: "print",
-    eyebrow: "Output",
     name: "Print",
     description:
       "The classic photo booth experience, refined. Crisp 4x6 or strip prints in 8 seconds, branded templates designed for your event, unlimited reprints all night.",
@@ -39,10 +38,10 @@ const modes: Mode[] = [
       "Unlimited reprints throughout the event",
     ],
     accent: "#c97b5a",
+    image: "/booth-print.png",
   },
   {
     id: "digital-print",
-    eyebrow: "Output",
     name: "Digital + Print",
     description:
       "Both worlds. Guests walk away with a print in hand and a digital copy on their phone — perfect for events where you want a physical keepsake plus the social-share moment.",
@@ -52,6 +51,7 @@ const modes: Mode[] = [
       "Everything in Digital and Print, bundled",
     ],
     accent: "#e8b4a0",
+    image: "/booth-digital-print.png",
   },
 ];
 
@@ -104,18 +104,17 @@ export default function BoothPage() {
                 }`}
               >
                 <Reveal className="md:col-span-6">
-                  <div
-                    className="aspect-[4/5] rounded-3xl border border-border overflow-hidden relative"
-                    style={{
-                      background: `linear-gradient(160deg, ${m.accent} 0%, #faf6f1 100%)`,
-                    }}
-                  >
+                  <div className="aspect-[4/5] rounded-3xl border border-border overflow-hidden relative">
+                    <Image
+                      src={m.image}
+                      alt={m.name}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
                     <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-ink/60">
+                      <span className="text-[10px] uppercase tracking-[0.25em] text-bg/90 drop-shadow-sm">
                         {String(i + 1).padStart(2, "0")} / 03
-                      </span>
-                      <span className="font-heading italic text-ink/60">
-                        {m.eyebrow}
                       </span>
                     </div>
                   </div>
@@ -123,7 +122,7 @@ export default function BoothPage() {
 
                 <Reveal className="md:col-span-6" delay={0.1}>
                   <div className="text-xs uppercase tracking-[0.25em] font-medium text-accent-dark mb-4">
-                    {m.eyebrow} · {String(i + 1).padStart(2, "0")}
+                    {String(i + 1).padStart(2, "0")} / 03
                   </div>
                   <h2 className="font-heading font-medium text-ink leading-[0.95] -tracking-[0.02em] text-[clamp(2rem,5vw,3.5rem)]">
                     {m.name}

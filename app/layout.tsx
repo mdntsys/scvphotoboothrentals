@@ -45,9 +45,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${fraunces.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-ink">
+      <body
+        className="min-h-full flex flex-col bg-bg text-ink"
+        suppressHydrationWarning
+      >
         <Nav />
         <main className="flex-1">{children}</main>
         <ContactSection />
