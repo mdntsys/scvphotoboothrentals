@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 type BoothTileProps = {
-  eyebrow: string;
   name: string;
   description: string;
   href: string;
@@ -11,7 +10,6 @@ type BoothTileProps = {
 };
 
 export default function BoothTile({
-  eyebrow,
   name,
   description,
   href,
@@ -42,17 +40,9 @@ export default function BoothTile({
             className="object-cover"
           />
         ) : null}
-        <div className="absolute inset-0 flex items-end p-6">
-          <span className="font-heading uppercase text-bg/0 text-xs tracking-[0.25em]">
-            {eyebrow}
-          </span>
-        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
       <div className="p-6 md:p-8">
-        <div className="text-xs uppercase tracking-[0.25em] text-accent-dark mb-2">
-          {eyebrow}
-        </div>
         <h3 className="font-heading text-2xl md:text-3xl text-ink leading-tight">
           {name}
         </h3>

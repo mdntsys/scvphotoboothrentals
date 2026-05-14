@@ -6,9 +6,15 @@ export const siteConfig = {
   emailHref: "mailto:sales@scvphotoboothrentals.com",
   serviceArea: "Southern California",
   hours: "Mon–Sun, by appointment",
+  socialHandle: "@scvphotoboothrentals",
   socials: [
-    { label: "Instagram", href: "#" },
-    { label: "TikTok", href: "#" },
-    { label: "Facebook", href: "#" },
+    {
+      label: "Instagram",
+      href: "https://instagram.com/scvphotoboothrentals",
+    },
+    {
+      label: "Facebook",
+      href: "https://facebook.com/scvphotoboothrentals",
+    },
   ],
 };

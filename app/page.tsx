@@ -26,7 +26,6 @@ const heroTags = [
 
 const booths = [
   {
-    eyebrow: "Output",
     name: "Digital",
     description:
       "Send every shot straight to guests' phones — instant text or AirDrop delivery, no waiting on prints, no extra trip back to the booth.",
@@ -34,7 +33,6 @@ const booths = [
     accent: "#9e5a3f",
   },
   {
-    eyebrow: "Output",
     name: "Print",
     description:
       "Crisp 4x6 or strip prints in 8 seconds, every time. Branded templates, unlimited reprints, a keepsake guests actually keep.",
@@ -42,7 +40,6 @@ const booths = [
     accent: "#c97b5a",
   },
   {
-    eyebrow: "Upgrade",
     name: "Glam",
     description:
       "A high-resolution camera and Hollywood-style ring light, layered on any output mode for editorial-quality, magazine-worthy shots.",
@@ -83,6 +80,19 @@ export default function HomePage() {
         <Container>
           <div className="grid gap-12 md:gap-16 md:grid-cols-12 items-center">
             <Reveal className="md:col-span-7">
+              <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-accent/40 bg-gradient-to-r from-accent/15 via-surface to-accent/15 px-4 py-1.5 shadow-[0_1px_0_0_rgba(255,255,255,0.6)_inset,0_1px_2px_rgba(0,0,0,0.04)]">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="w-3.5 h-3.5 text-accent-dark"
+                  fill="currentColor"
+                >
+                  <path d="M12 2l1.76 5.42h5.7l-4.61 3.35 1.76 5.42L12 12.84l-4.61 3.35 1.76-5.42L4.54 7.42h5.7L12 2z" />
+                </svg>
+                <span className="font-heading italic text-[13px] md:text-sm text-accent-dark leading-none">
+                  Proudly serving the Santa Clarita Valley and surrounding areas
+                </span>
+              </div>
               <div className="text-xs uppercase tracking-[0.25em] font-medium text-accent-dark mb-5">
                 Southern California · Photo Booth Rentals
               </div>
@@ -130,14 +140,6 @@ export default function HomePage() {
                   sizes="(min-width: 768px) 42vw, 100vw"
                   className="w-full h-auto rounded-3xl border border-border object-cover"
                 />
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 rotate-6 bg-bg/95 backdrop-blur-sm rounded-xl border border-border px-4 py-2 text-xs">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted">
-                    Print in
-                  </div>
-                  <div className="font-heading text-lg text-ink leading-none mt-0.5">
-                    8 sec
-                  </div>
-                </div>
               </div>
             </Reveal>
           </div>
@@ -232,11 +234,7 @@ export default function HomePage() {
                     style={{
                       background: `linear-gradient(160deg, ${x.accent} 0%, #faf6f1 100%)`,
                     }}
-                  >
-                    <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-bg/85 backdrop-blur-sm px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-ink">
-                      Add-On
-                    </span>
-                  </div>
+                  />
                   <div className="p-5 md:p-6">
                     <h3 className="font-heading text-xl md:text-2xl text-ink leading-tight -tracking-[0.01em]">
                       {x.title}

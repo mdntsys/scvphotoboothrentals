@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="mt-6 flex items-center gap-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-bg/60 px-3 py-1 text-xs uppercase tracking-[0.18em] text-muted">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-                {siteConfig.serviceArea}
+                Santa Clarita Valley + Surrounding Areas
               </span>
             </div>
           </div>
@@ -81,17 +81,51 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {siteConfig.socials.map((s) => (
+            <div className="mt-6 flex items-center gap-3 flex-wrap">
+              <p className="text-sm text-muted">
+                Follow us on Instagram &amp; Facebook{" "}
+                <span className="text-ink">{siteConfig.socialHandle}</span>
+              </p>
+              <div className="flex items-center gap-2">
                 <a
-                  key={s.label}
-                  href={s.href}
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-border text-ink hover:border-accent hover:text-accent transition-colors text-xs"
-                  aria-label={s.label}
+                  href="https://instagram.com/scvphotoboothrentals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram @scvphotoboothrentals"
+                  className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-border text-ink hover:border-accent hover:text-accent transition-colors"
                 >
-                  {s.label.slice(0, 2)}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-4 h-4"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
+                  </svg>
                 </a>
-              ))}
+                <a
+                  href="https://facebook.com/scvphotoboothrentals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook @scvphotoboothrentals"
+                  className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-border text-ink hover:border-accent hover:text-accent transition-colors"
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8h3.4z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
